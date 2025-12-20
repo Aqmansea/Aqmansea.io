@@ -31,11 +31,11 @@ const HeroSection = () => {
                 </span>               
               </h1>
               <h2 className="text-4xl lg:text-5xl font-serif font-bold mb-4">
-                <span className="text-slate-600 dark:text-slate-300">IT / 軟體工程師</span>
+                <span className="text-slate-600 dark:text-slate-300">系統工程師</span>
               </h2>
               <p className="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl">
-                正在轉職的 IT/軟體工程師，具 Windows Server 2022 與醫院資訊系統維運經驗。
-                熟悉 JavaScript / React / Vue 前端開發，具 Python / Java / Node.js / ASP.NET 後端基礎。
+                現任系統工程師，具 Windows Server 2022 與醫院資訊系統維運經驗。
+                熟悉 JavaScript / React 前端開發，具 Python / Java / Node.js / ASP.NET 後端基礎。
               </p>
             </div>
 

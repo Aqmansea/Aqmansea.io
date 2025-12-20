@@ -9,12 +9,12 @@ const AboutSection = () => {
   const skillsRef = useRef<HTMLDivElement>(null);
 
   const skills = [
-    { name: 'Frontend (React/Vue)', level: 85, icon: Code2 },
-    { name: 'Backend (Node.js/Python)', level: 75, icon: Briefcase },
-    { name: 'Windows Server', level: 80, icon: Globe },
-    { name: 'Database (MySQL/SQL)', level: 78, icon: Smartphone },
-    { name: 'AI Coding (Vibe Coding)', level: 82, icon: Code2 },
-    { name: 'System Administration', level: 80, icon: Users },
+    { name: 'Frontend (React/Vue)', level: 50, icon: Code2 },
+    { name: 'Backend (Node.js/Python)', level: 60, icon: Briefcase },
+    { name: 'Windows Server', level: 65, icon: Globe },
+    { name: 'Database (MySQL/SQL)', level: 60, icon: Smartphone },
+    { name: 'AI Coding (Vibe Coding)', level: 75, icon: Code2 },
+    { name: 'System Administration', level: 70, icon: Users },
   ];
 
   useEffect(() => {
@@ -44,8 +44,8 @@ const AboutSection = () => {
   const values = [
     {
       icon: Code2,
-      title: '快速原型開發',
-      description: '以 AI 輔助快速建立原型，提高開發效率與迭代速度。',
+      title: '自動化',
+      description: '以 AI 輔助快速建立原型，提高工作效率與流程自動化。',
     },
     {
       icon: Users,
@@ -54,8 +54,8 @@ const AboutSection = () => {
     },
     {
       icon: Globe,
-      title: '全棧開發',
-      description: '具前後端開發經驗，能獨立完成從設計到部署的全流程。',
+      title: '網頁開發',
+      description: '具前後端開發經驗，能透過AI輔助完成從設計到部署的全流程。',
     },
   ];
 
@@ -69,7 +69,7 @@ const AboutSection = () => {
             關於 <span className="text-accent-gradient">Zane</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            正在轉職的 IT/軟體工程師，具 Windows Server 2022 與醫院資訊系統維運經驗。
+            現任耀瑄科技系統維護工程師，具 Windows Server 2022 與醫院資訊系統維運經驗。
             能以 AI 輔助（Vibe Coding / AI Coding）快速建立原型並完成日常維護與自動化。
           </p>
         </div>
@@ -78,25 +78,27 @@ const AboutSection = () => {
           
           {/* Personal Story */}
           <div className="animate-slide-up">
-            <h3 className="text-2xl font-serif font-semibold mb-6">我的旅程</h3>
+            <h3 className="text-2xl font-serif font-semibold mb-6">跨域經歷</h3>
             <div className="space-y-6 text-muted-foreground">
               <p>
-                從小就對程式設計感興趣，大學主修水土保持系。後來在國立臺北科技大學水環境研究中心擔任研究助理，並遇上轉職機會。
+                大學主修水土保持系。後來在國立臺北科技大學水環境研究中心擔任研究助理
+                ，回家鄉後遇上轉職機會，參與職訓局辦理的職訓課程，學習Web前端開發與後端開發。
               </p>
               <p>
-                目前在耀爡科技擔任系統維護工程師，負責醫院系統維運、資料備份、例行檢查與故障排除。
-                能在文件不足的情況下，透過官方文件、GPT 與同事知識傳承快速定位問題。
+                目前在耀瑄科技擔任系統維護工程師，負責醫院系統維運、資料備份、系統建置、例行檢查與故障排除。
+                能在文件不足的情況下，透過官方文件或AI輔助與同事知識傳承快速定位問題。
               </p>
               <p>
-                前端具 React / Vue 作品經驗；後端具 Flask / Spring Boot / Node.js / ASP.NET 入門實作與 API 串接經驗。
-                持續在 Vibe Coding（AI Coding）平台實作，強化演算法、程式邏輯與原型開發速度。
+                前端有 React 作品經驗；後端具 Flask / Spring Boot / Node.js / ASP.NET 入門實作
+                與 API 串接經驗。
+                持續在 Vibe Coding（AI Coding） 學習與實作。
               </p>
             </div>
           </div>
 
           {/* Skills */}
           <div ref={skillsRef} className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            <h3 className="text-2xl font-serif font-semibold mb-6">技能 & 專長</h3>
+            <h3 className="text-2xl font-serif font-semibold mb-6">語言經驗</h3>
             <div className="space-y-4">
               {skills.map((skill, index) => {
                 const Icon = skill.icon;

@@ -15,12 +15,6 @@ export const socialLinks = [
     type: 'external' as const
   },
   {
-    icon: faTwitter,
-    href: 'https://twitter.com',
-    label: 'Twitter',
-    type: 'external' as const
-  },
-  {
     icon: faDribbble,
     href: 'https://dribbble.com',
     label: 'Dribbble',
@@ -40,4 +34,3 @@ export const xLink = {
   label: 'X (Twitter)',
   type: 'external' as const
 };
-

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -17,7 +17,7 @@ const PortfolioSection = () => {
       id: 1,
       title: 'Learning.com - Bootstrap 學習平台',
       description: '以 Bootstrap 5 打造的互動學習平台，整合課程卡片、報名表單與完整響應式排版，呈現整潔的教學品牌視覺。',
-      image: projectWebDev,
+      image: buildPublicUrl('projects/bootstrap/images/1.JPG'),
       category: 'web',
       technologies: ['Bootstrap 5', 'HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
       liveUrl: buildPublicUrl('projects/bootstrap/alex.html'),
@@ -103,11 +103,75 @@ const PortfolioSection = () => {
         speed: '立即預覽結果'
       }
     },
+    {
+      id: 7,
+      title: '機票分析 API - Gemini 整合',
+      description: '使用 Python 開發的機票分析 API，整合 Google Gemini AI 與 Amadeus API，提供智能機票價格分析與推薦功能。',
+      image: projectWebDev,
+      category: 'api',
+      technologies: ['Python', 'Gemini API', 'RESTful API', 'Amadeus API'],
+      liveUrl: '#',
+      githubUrl: '#',
+      results: {
+        ai: 'Gemini AI 整合',
+        analysis: '智能價格分析',
+        api: 'Amadeus API'
+      }
+    },
+    {
+      id: 8,
+      title: '點餐系統 - OSM API 爬蟲（開發中）',
+      description: '【開發中】全端點餐系統，使用爬蟲技術整合 OSM API，後端採用 C# 開發，前端使用 React，並以 Docker 容器化部署，整合 Redis 快取強化查詢效能，搭配反向代理優化服務。',
+      image: projectMobileApp,
+      category: 'fullstack',
+      technologies: ['C#', 'React', 'Docker', 'Redis', '爬蟲', '反向代理', 'OSM API'],
+      liveUrl: '#',
+      githubUrl: '#',
+      results: {
+        performance: 'Redis 快取優化',
+        deployment: 'Docker 容器化',
+        architecture: '前後端分離'
+      }
+    },
+    {
+      id: 9,
+      title: 'LF2 仿製遊戲（開發中）',
+      description: '【開發中】仿製經典遊戲 Little Fighter 2，重現角色動作、戰鬥系統與遊戲機制，展現遊戲開發與動畫處理能力。',
+      image: projectBranding,
+      category: 'game',
+      technologies: ['遊戲開發', '動畫系統', '物理引擎', '碰撞檢測'],
+      liveUrl: '#',
+      githubUrl: '#',
+      results: {
+        gameplay: '完整戰鬥系統',
+        animation: '流暢角色動畫',
+        mechanics: '經典遊戲重現'
+      }
+    },
+    {
+      id: 10,
+      title: 'N8N 自動化交友聊天（開發中）',
+      description: '【開發中】使用 N8N 工作流程自動化平台，建立智能交友聊天自動化系統，整合多個社交平台 API，實現自動回覆與配對功能。',
+      image: projectWebDev,
+      category: 'automation',
+      technologies: ['N8N', '工作流程自動化', 'API 整合', '聊天機器人'],
+      liveUrl: '#',
+      githubUrl: '#',
+      results: {
+        automation: '智能自動回覆',
+        integration: '多平台整合',
+        workflow: 'N8N 工作流程'
+      }
+    },
   ];
 
   const categories = [
     { id: 'all', label: '全部作品' },
     { id: 'web', label: '網頁開發' },
+    { id: 'api', label: 'API 開發' },
+    { id: 'fullstack', label: '全端開發' },
+    { id: 'game', label: '遊戲開發' },
+    { id: 'automation', label: '自動化' },
   ];
 
   const filteredProjects = filter === 'all'
@@ -166,7 +230,11 @@ const PortfolioSection = () => {
                 <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col h-full">
                   <div className="mb-4">
                     <Badge variant="outline" className="mb-4 bg-gradient-accent text-accent-foreground">
-                      網頁開發
+                      {project.category === 'web' ? '網頁開發' : 
+                       project.category === 'api' ? 'API 開發' :
+                       project.category === 'fullstack' ? '全端開發' :
+                       project.category === 'game' ? '遊戲開發' :
+                       project.category === 'automation' ? '自動化' : '其他'}
                     </Badge>
                     <h3 className="text-2xl lg:text-3xl font-serif font-bold mb-4">
                       {project.title}
@@ -204,20 +272,22 @@ const PortfolioSection = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-4 mt-auto">
-                    <Button variant="accent" className="flex-1" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <Eye className="h-4 w-4 mr-2" />
-                        查看演示
-                      </a>
-                    </Button>
-                    <Button variant="minimal" className="flex-1" asChild>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4 mr-2" />
-                        檢視原始碼
-                      </a>
-                    </Button>
-                  </div>
+                  {project.id <= 6 && (
+                    <div className="flex gap-4 mt-auto">
+                      <Button variant="accent" className="flex-1" asChild>
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <Eye className="h-4 w-4 mr-2" />
+                          查看演示
+                        </a>
+                      </Button>
+                      <Button variant="minimal" className="flex-1" asChild>
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <Github className="h-4 w-4 mr-2" />
+                          檢視原始碼
+                        </a>
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </div>
             </Card>

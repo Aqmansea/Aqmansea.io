@@ -61,11 +61,10 @@ const ExperienceTimeline: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-serif font-bold mb-6">
-            Professional <span className="text-accent-gradient">Timeline</span>
+            專業 <span className="text-accent-gradient">歷程</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            My journey through the design industry, from education to senior roles, 
-            showcasing growth, learning, and impact across different organizations.
+            從教育到職場的成長歷程，展現在不同組織中的學習、成長與影響力。
           </p>
         </div>
 

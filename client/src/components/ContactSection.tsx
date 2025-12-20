@@ -5,7 +5,6 @@ import { Badge } from '@/components/ui/badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { socialLinks, xLink } from '@/constants/socialLinks';
-
 const ContactSection = () => {
 
 
@@ -56,18 +55,18 @@ const ContactSection = () => {
             <div className="order-2 lg:order-1">
               <Card className="p-8 shadow-card bg-gradient-subtle h-full">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold">可用性</h3>
+                  <h3 className="text-xl font-semibold">靈感激發</h3>
                   <Badge variant="outline" className="bg-success-soft text-success border-success">
-                    可接案
+                    IDEA
                   </Badge>
                 </div>
                 <p className="text-muted-foreground mb-4">
-                  我目前可以接受新的項目與合作。不論是前端開發、後端開發或系統維運，我都樂意了解您的需求。
+                  我目前可以Vibe coding。不論是前端開發、後端開發或系統維運，我都樂意了解您的需求，給我你的創意與法想。
                 </p>
                 <div className="space-y-2 text-sm">
                   <p><strong>回覆時間：</strong> 24 小時內</p>
-                  <p><strong>偏好項目：</strong> 前端開發、系統維運、全棧開發</p>
-                  <p><strong>合作風格：</strong> 敏捷、遠端協作</p>
+                  <p><strong>偏好項目：</strong> 前端開發、系統維運、全端開發</p>
+                  <p><strong>合作風格：</strong> 實現你的想法</p>
                 </div>
               </Card>
             </div>
@@ -131,19 +130,19 @@ const ContactSection = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16 animate-fade-in">
-          <Card className="p-8 lg:p-12 bg-gradient-primary text-primary-foreground shadow-elegant">
-            <h3 className="text-2xl lg:text-3xl font-serif font-bold mb-4">
+          <Card className="p-8 lg:p-12 bg-gradient-primary text-white shadow-elegant">
+            <h3 className="text-2xl lg:text-3xl font-serif font-bold mb-4 text-white">
               Ready to Start Your Project?
             </h3>
-            <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto text-white">
               Every great project starts with a conversation. Let's discuss your vision 
               and explore how we can create something amazing together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="accent" size="lg">
+              <Button variant="accent" size="lg" className="text-white">
                 Schedule a Call
               </Button>
-              <Button variant="elegant" size="lg">
+              <Button variant="elegant" size="lg" className="text-white">
                 View Pricing
               </Button>
             </div>

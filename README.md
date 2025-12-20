@@ -1,625 +1,343 @@
-# Web App Template (Static Frontend)
+# 個人作品集網站 - 專案規格說明書
 
-Pure React + Tailwind template with shadcn/ui baked in. **Use this README as the checklist for shipping static experiences.**
+## 專案概述
 
-> **Note:** This template includes a minimal `shared/` and `server/` directory with placeholder types to support imported templates. These are just compatibility placeholders - web-static remains a true static-only template without API functionality.
+本專案為個人作品集展示網站，採用現代化前端技術架構開發，整合多項個人專案作品與專業經歷展示。網站以響應式設計為核心，提供完整的個人履歷、作品集、專業技能與聯絡資訊展示功能，展現全端開發能力與技術實作經驗。
 
----
+### 專案目標
 
-## 🤖 AI Development Guide
-
-### Stack Overview
-- Client-only routing powered by React + Wouter.
-- Design tokens are provided through `client/src/index.css` and `tailwind.config.ts`—keep them intact.
-
-### Component Patterns
-
-```tsx
-// Compose pages from shadcn/ui primitives
-import { Button } from "@/components/ui/button";
-
-export function Hero() {
-  return (
-    <section className="rounded-3xl bg-white p-10 shadow-xl">
-      <h1 className="text-4xl font-bold text-slate-900">Launch Quickly</h1>
-      <Button size="lg" className="mt-6">Get Started</Button>
-    </section>
-  );
-}
-```
-
-### File Structure
-
-```
-client/
-  public/         ← Static assets copied verbatim to '/'
-  src/
-    pages/        ← Page-level components
-    components/   ← Reusable UI & shadcn/ui
-    contexts/     ← React contexts
-    hooks/        ← Custom React hooks
-    lib/          ← Utility helpers
-    App.tsx       ← Routes & top-level layout
-    main.tsx      ← React entry point
-    index.css     ← global style
-server/         ← Placeholder for imported template compatibility
-shared/         ← Placeholder for imported template compatibility
-  const.ts      ← Shared constants
-```
-
-Assets placed under `client/public` are served with aggressive caching, so add a content hash to filenames (for example, `logo.3fa9b2e4.svg`) whenever you replace a file and update its references to avoid stale assets.
-
-Files in `client/public` are available at the root of your site—reference them with absolute paths (`/logo.3fa9b2e4.svg`, `/robots.txt`, etc.) from HTML templates, JSX, or meta tags.
+- 建立專業的個人品牌形象展示平台
+- 整合多項實作專案作品，展現技術能力
+- 提供完整的履歷與經歷時間軸展示
+- 實作現代化前端開發最佳實踐
 
 ---
 
-## 🎯 Development Workflow
+## 技術架構
 
-1. **Compose pages** in `client/src/pages/`. Keep sections modular so they can be reused across routes.
-2. **Share primitives** via `client/src/components/`—extend shadcn/ui when needed instead of duplicating markup.
-3. **Keep styling consistent** by relying on existing Tailwind tokens (spacing, colors, typography).
-4. **Fetch external data** with `useEffect` if the site needs dynamic content from public APIs.
+### 前端技術棧
 
----
+| 技術項目 | 版本/規格 | 用途說明 |
+|---------|----------|---------|
+| **React** | 18.3.1 | 核心前端框架，採用函數式組件與 Hooks |
+| **TypeScript** | 5.6.3 | 型別安全開發，提升程式碼品質 |
+| **Vite** | 7.1.7 | 現代化建置工具，提供快速開發體驗 |
+| **Tailwind CSS** | 4.1.14 | 工具優先的 CSS 框架，實現響應式設計 |
+| **shadcn/ui** | Latest | 高品質 UI 元件庫，基於 Radix UI |
+| **Wouter** | 3.3.5 | 輕量級路由解決方案 |
+| **Framer Motion** | 12.23.22 | 動畫與過場效果處理 |
 
-## 🧱 Tailwind Safeguards
+### 開發工具與環境
 
-- Preserve the `@layer base` block in `client/src/index.css`; removing it breaks utilities like `border-border`.
-- Do not strip values from `theme.extend` in `tailwind.config.ts`—they power the design tokens used in the UI kit.
-- Stick to utility classes for responsiveness (mobile-first by default).
-## ✅ Launch Checklist
-- [ ] UI layout and navigation structure correct, all image src valid.
-- [ ] Success + error paths verified in the browser
-
----
-
-## 🎨 Frontend Best Practices (shadcn-first)
-
-- Prefer shadcn/ui components for interactions to keep a modern, consistent look; import from `@/components/ui/*` (e.g., `button`, `card`, `dialog`).
-- Compose Tailwind utilities with component variants for layout and states; avoid excessive custom CSS. Use built-in `variant`, `size`, etc. where available.
-- Preserve design tokens: keep the `@layer base` rules in `client/src/index.css`. Utilities like `border-border` and `font-sans` depend on them.
-- Consistent design language: use spacing, radius, shadows, and typography via tokens. Extract shared UI into `components/` for reuse instead of copy‑paste.
-- Accessibility and responsiveness: keep visible focus rings and ensure keyboard reachability; design mobile‑first with thoughtful breakpoints.
-- Theming: Choose dark/light theme to start with for ThemeProvider according to your design style (dark or light bg), then manage colors pallette with CSS variables in `client/src/index.css` instead of hard‑coding to keep global consistency;
-- Micro‑interactions and empty states: add motion, empty states, and icons tastefully to improve quality without distracting from content.
-- Navigation: Design clear and intuitive navigation structure appropriate for the app type (e.g., top/side nav for multi-page apps, breadcrumbs or contextual navigation for SPAs)'. When building dashboard-like experience, use sidebar-nav to keep all page entry easy to access.
-
-**React component rules:**
-- Never call setState/navigation in render phase → wrap in `useEffect`
+- **套件管理**: pnpm 10.4.1
+- **程式碼品質**: TypeScript、Prettier
+- **建置系統**: Vite + esbuild
+- **部署平台**: GitHub Pages（支援靜態網站部署）
 
 ---
 
-## Common Pitfalls
+## 系統架構設計
 
-### Infinite loading loops from unstable references
-**Anti-pattern:** Creating new objects/arrays in render that are used as query inputs
-```tsx
-// ❌ Bad: New Date() creates new reference every render → infinite queries
-const { data } = trpc.items.getByDate.useQuery({
-  date: new Date(), // ← New object every render!
-});
+### 專案結構
 
-// ❌ Bad: Array/object literals in query input
-const { data } = trpc.items.getByIds.useQuery({
-  ids: [1, 2, 3], // ← New array reference every render!
-});
+```
+ZaneX/
+├── client/                    # 前端應用程式
+│   ├── public/                # 靜態資源檔案
+│   │   └── projects/          # 作品集專案檔案
+│   │       ├── bootstrap/     # Bootstrap 學習平台
+│   │       ├── grade/         # 成績計算器
+│   │       ├── snake/         # 遊戲專案
+│   │       └── ...
+│   ├── src/
+│   │   ├── components/        # React 組件
+│   │   │   ├── ui/           # shadcn/ui 基礎組件
+│   │   │   ├── Navigation.tsx      # 導航列
+│   │   │   ├── HeroSection.tsx     # 首頁橫幅
+│   │   │   ├── AboutSection.tsx    # 關於我區塊
+│   │   │   ├── ExperienceTimeline.tsx  # 專業歷程時間軸
+│   │   │   ├── PortfolioSection.tsx     # 作品集展示
+│   │   │   ├── BlogSection.tsx          # 技術文章區塊
+│   │   │   ├── ContactSection.tsx       # 聯絡資訊
+│   │   │   ├── ParticleBackground.tsx   # 粒子背景動畫
+│   │   │   └── ScrollProgress.tsx       # 滾動進度條
+│   │   ├── pages/             # 頁面組件
+│   │   │   ├── Home.tsx       # 首頁
+│   │   │   └── NotFound.tsx   # 404 頁面
+│   │   ├── constants/         # 常數定義
+│   │   │   ├── experienceData.ts  # 工作經歷資料
+│   │   │   └── socialLinks.ts     # 社群連結
+│   │   ├── contexts/          # React Context
+│   │   │   └── ThemeContext.tsx   # 主題管理
+│   │   ├── hooks/             # 自訂 Hooks
+│   │   ├── lib/               # 工具函數
+│   │   ├── App.tsx            # 應用程式入口
+│   │   ├── main.tsx           # React 渲染入口
+│   │   └── index.css          # 全域樣式與設計系統
+│   └── vite.config.ts         # Vite 設定檔
+├── server/                     # 後端服務（預留擴充）
+├── shared/                     # 共享型別定義
+└── package.json                # 專案依賴與腳本
 ```
 
-**Correct approach:** Stabilize references with useState/useMemo
-```tsx
-// ✅ Good: Initialize once with useState
-const [date] = useState(() => new Date());
-const { data } = trpc.items.getByDate.useQuery({ date });
+### 設計系統
 
-// ✅ Good: Memoize complex inputs
-const ids = useMemo(() => [1, 2, 3], []);
-const { data } = trpc.items.getByIds.useQuery({ ids });
-```
+採用設計 Token 系統，透過 CSS 變數統一管理：
 
-**Why this happens:** TRPC queries trigger when input references change. Objects/arrays created in render have new references each time, causing infinite re-fetches.
-
-### Navigation dead-ends in subpages
-**Problem:** Creating nested routes without escape routes—no header nav, no sidebar, no back button.
-
-**Solution:** Choose navigation based on app structure:
-```tsx
-// For dashboard/multi-section apps: Use persistent sidebar (from shadcn/ui)
-import { SidebarProvider, Sidebar, SidebarContent, SidebarInset } from "@/components/ui/sidebar";
-
-<SidebarProvider>
-  <Sidebar>
-    <SidebarContent>
-      {/* Navigation menu items - always visible */}
-    </SidebarContent>
-  </Sidebar>
-  <SidebarInset>
-    {children}  {/* Page content */}
-  </SidebarInset>
-</SidebarProvider>
-
-// For linear flows (detail pages, wizards): Use back button
-import { useRouter } from "wouter";
-
-const router = useRouter();
-<div>
-  <Button variant="ghost" onClick={() => router.back()}>
-    ← Back
-  </Button>
-  <ItemDetailPage />
-</div>
-```
-
-### Dark mode styling without theme configuration
-**Problem:** Using dark foreground colors without setting the theme, making text invisible on default light backgrounds.
-
-**Solution:** Set `defaultTheme="dark"` in App.tsx, then update CSS variables in `index.css`:
-```tsx
-// App.tsx: Set the default theme first
-<ThemeProvider defaultTheme="dark">  {/* Applies .dark class to root */}
-  <div className="text-foreground bg-background">
-    Content  {/* Now uses dark theme CSS variables */}
-  </div>
-</ThemeProvider>
-```
-
-```css
-/* index.css: Adjust color palette for dark theme */
-.dark {
-  --background: oklch(0.145 0 0);  /* Dark background */
-  --foreground: oklch(0.985 0 0);  /* Light text */
-  /* ... other variables ... */
-}
-```
+- **色彩系統**: 主色調、強調色、背景色、文字色等
+- **間距系統**: 統一的間距與尺寸規範
+- **動畫系統**: 統一的過渡效果與動畫時長
+- **陰影系統**: 分層的陰影效果（卡片、優雅、發光）
+- **響應式斷點**: 行動優先的響應式設計
 
 ---
 
-## Core File References
-
-`client/src/App.tsx`
-```tsx
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
-import ErrorBoundary from "./components/ErrorBoundary";
-import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
-
-function Router() {
-  return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
-
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
-function App() {
-  return (
-    <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
-  );
-}
-
-export default App;
-
-```
-
-`client/src/pages/Home.tsx`
-```tsx
-import React from 'react';
-import Navigation from '@/components/Navigation';
-import ParticleBackground from '@/components/ParticleBackground';
-import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import ExperienceTimeline from '@/components/ExperienceTimeline';
-import PortfolioSection from '@/components/PortfolioSection';
-import BlogSection from '@/components/BlogSection';
-import ContactSection from '@/components/ContactSection';
-import ScrollProgress from '@/components/ScrollProgress';
-
-export default function Home() {
-  return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Background Elements */}
-      <ParticleBackground />
-      <ScrollProgress />
-      
-      {/* Navigation */}
-      <Navigation />
-      
-      {/* Main Content */}
-      <main className="relative z-10">
-        <HeroSection />
-        <AboutSection />
-        <ExperienceTimeline />
-        <PortfolioSection />
-        <BlogSection />
-        <ContactSection />
-      </main>
-      
-      {/* Footer */}
-      <footer id="footer" className="bg-primary text-primary-foreground py-12">
-        <div className="container mx-auto px-6 text-center">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-2xl font-serif font-bold">
-              Portfolio
-            </div>
-            <p className="text-primary-foreground/80">
-              © 2024 Portfolio. Crafted with passion and purpose.
-            </p>
-            <div className="flex gap-4">
-              <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-smooth">
-                Privacy
-              </a>
-              <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-smooth">
-                Terms
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-}
-
-
-```
-
-`client/src/main.tsx`
-```tsx
-import { createRoot } from "react-dom/client";
-import App from "./App";
-import "./index.css";
-
-createRoot(document.getElementById("root")!).render(<App />);
-
-```
-
-`client/src/index.css`
-```css
-@import "tailwindcss";
-
-/* Minimalist Portfolio Design System */
-
-@layer base {
-  :root {
-    /* Base colors */
-    --background: 0 0% 98%;
-    --foreground: 220 15% 15%;
-
-    /* Card system */
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
-
-    /* Primary brand colors */
-    --primary: 220 25% 25%;
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 220 25% 35%;
-
-    /* Secondary system */
-    --secondary: 220 8% 92%;
-    --secondary-foreground: 220 15% 15%;
-
-    /* Accent colors */
-    --accent: 25 95% 65%;
-    --accent-foreground: 220 15% 15%;
-    --accent-soft: 25 85% 85%;
-
-    /* Muted system */
-    --muted: 220 8% 96%;
-    --muted-foreground: 220 8% 45%;
-
-    /* Interactive states */
-    --destructive: 0 75% 60%;
-    --destructive-foreground: 0 0% 98%;
-    
-    /* Success/status colors */
-    --success: 120 60% 50%;
-    --success-foreground: 0 0% 98%;
-    --success-soft: 120 60% 95%;
-    
-    /* Timeline system */
-    --timeline-bg: 220 25% 25%;
-    --timeline-foreground: 0 0% 98%;
-    --timeline-border: 220 20% 35%;
-    --timeline-line: 220 25% 25%;
-    --timeline-icon-bg: 220 25% 25%;
-    --timeline-icon-border: 220 25% 25%;
-    --timeline-date: 220 25% 25%;
-    
-    /* App-specific colors */
-    --logo-primary: 220 100% 70%;
-    --logo-secondary: 195 100% 70%;
-    --app-muted: 0 0% 53%;
-    
-    --border: 220 8% 88%;
-    --input: 220 8% 94%;
-    --ring: 220 25% 25%;
-
-    /* Design system tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-soft)));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    
-    /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.15);
-    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.2);
-    --shadow-card: 0 2px 20px -5px hsl(var(--primary) / 0.1);
-    
-    /* Animations */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    /* Dark mode colors */
-    --background: 220 25% 8%;
-    --foreground: 0 0% 95%;
-
-    --card: 220 20% 12%;
-    --card-foreground: 0 0% 95%;
-
-    --primary: 25 95% 65%;
-    --primary-foreground: 220 25% 8%;
-    --primary-glow: 25 85% 75%;
-
-    --secondary: 220 15% 20%;
-    --secondary-foreground: 0 0% 90%;
-
-    --accent: 25 95% 65%;
-    --accent-foreground: 220 25% 8%;
-    --accent-soft: 25 85% 25%;
-
-    --muted: 220 15% 15%;
-    --muted-foreground: 220 8% 65%;
-
-    --destructive: 0 75% 60%;
-    --destructive-foreground: 0 0% 95%;
-
-    /* Success/status colors - dark mode */
-    --success: 120 60% 55%;
-    --success-foreground: 220 25% 8%;
-    --success-soft: 120 30% 20%;
-    
-    /* Timeline system - dark mode */
-    --timeline-bg: 220 15% 30%;
-    --timeline-foreground: 0 0% 95%;
-    --timeline-border: 220 15% 40%;
-    --timeline-line: 220 8% 65%;
-    --timeline-icon-bg: 220 8% 65%;
-    --timeline-icon-border: 220 8% 75%;
-    --timeline-date: 220 8% 75%;
-    
-    /* App-specific colors - dark mode */
-    --logo-primary: 220 100% 70%;
-    --logo-secondary: 195 100% 70%;
-    --app-muted: 0 0% 53%;
-
-    --border: 220 15% 25%;
-    --input: 220 15% 18%;
-    --ring: 25 95% 65%;
-
-    /* Dark mode design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-soft)));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    
-    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
-    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.3);
-    --shadow-card: 0 2px 20px -5px hsl(0 0% 0% / 0.2);
-  }
-}
-
-@layer base {
-  * {
-    border-color: hsl(var(--border));
-  }
-
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-@layer components {
-  /* Elegant animations */
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-
-  .animate-slide-up {
-    animation: slide-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  }
-
-  .animate-fade-in {
-    animation: fade-in 1s ease-out forwards;
-  }
-
-  .animate-scale-hover {
-    transition: var(--transition-fast);
-  }
-
-  .animate-scale-hover:hover {
-    transform: scale(1.05);
-  }
-
-  /* Gradient backgrounds */
-  .bg-gradient-primary {
-    background: var(--gradient-primary);
-  }
-
-  .bg-gradient-accent {
-    background: var(--gradient-accent);
-  }
-
-  .bg-gradient-subtle {
-    background: var(--gradient-subtle);
-  }
-
-  /* Elegant shadows */
-  .shadow-elegant {
-    box-shadow: var(--shadow-elegant);
-  }
-
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
-  }
-
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-
-  /* Text effects */
-  .text-gradient {
-    background: var(--gradient-primary);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .text-accent-gradient {
-    background: var(--gradient-accent);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* Smooth transitions */
-  .transition-smooth {
-    transition: var(--transition-smooth);
-  }
-
-  .transition-fast {
-    transition: var(--transition-fast);
-  }
-
-  .transition-spring {
-    transition: var(--transition-spring);
-  }
-
-  /* Interactive elements */
-
-  /* Particle background */
-  .particles-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-  .particle {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: hsl(var(--accent));
-    border-radius: 50%;
-    animation: particle-float 10s linear infinite;
-    opacity: 0.3;
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { 
-    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
-  }
-  50% { 
-    box-shadow: 0 0 40px hsl(var(--accent) / 0.6);
-  }
-}
-
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes particle-float {
-  0% {
-    transform: translateY(100vh) translateX(-10px);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.3;
-  }
-  90% {
-    opacity: 0.3;
-  }
-  100% {
-    transform: translateY(-100px) translateX(10px);
-    opacity: 0;
-  }
-}
-
-
-```
+## 核心功能模組
+
+### 1. 首頁橫幅（Hero Section）
+
+- **功能**: 個人介紹與主要行動呼籲
+- **技術**: React Hooks、動畫效果、粒子背景
+- **特色**: 
+  - 動態粒子背景效果
+  - 漸層文字效果
+  - 平滑滾動導航
 
+### 2. 關於我區塊（About Section）
+
+- **功能**: 個人簡介、技能展示、核心價值
+- **技術**: Intersection Observer API、進度條動畫
+- **特色**:
+  - 技能熟練度進度條（動態載入動畫）
+  - 響應式雙欄佈局
+  - 核心價值卡片展示
+
+**技能項目**:
+- Frontend (React/Vue): 85%
+- Backend (Node.js/Python): 75%
+- Windows Server: 80%
+- Database (MySQL/SQL): 78%
+- AI Coding (Vibe Coding): 82%
+- System Administration: 80%
+
+### 3. 專業歷程時間軸（Experience Timeline）
+
+- **功能**: 工作經歷與教育背景時間軸展示
+- **技術**: react-vertical-timeline-component
+- **特色**:
+  - 垂直時間軸視覺化
+  - 公司圖標與詳細工作內容
+  - 響應式卡片設計
+
+**經歷內容**:
+- 系統工程師 - 耀瑄科技股份有限公司（2025/4 - 至今）
+- 設備工程師 - 日月光半導體製造股份有限公司（2025/3 - 2025/4）
+- 裝機設備工程師 - 特瑞科技有限公司（2024/12 - 2025/2）
+- 職訓 Java 跨域培訓生 - 資展國際（2024/8）
+
+### 4. 作品集展示（Portfolio Section）
+
+- **功能**: 專案作品展示與分類篩選
+- **技術**: 動態篩選、卡片佈局、圖片懶載入
+- **特色**:
+  - 多分類篩選功能（網頁開發、API 開發、全端開發、遊戲開發、自動化）
+  - 響應式卡片佈局
+  - 技術標籤與重點亮點展示
+
+**作品集內容**:
+
+#### 已完成專案
+
+1. **Learning.com - Bootstrap 學習平台**
+   - 技術: Bootstrap 5, HTML5, CSS3, JavaScript
+   - 特色: 響應式設計、課程卡片、報名表單
+
+2. **成績計算器**
+   - 技術: HTML5, CSS3, JavaScript, Font Awesome
+   - 特色: 即時計算、統計分析、行動版優化
+
+3. **迷你遊戲組合（Snake / Ball / Guess）**
+   - 技術: JavaScript, HTML5, Canvas, Game Logic
+   - 特色: 三款遊戲、Canvas 繪圖、事件處理
+
+4. **Canvas 彈跳球遊戲**
+   - 技術: JavaScript, HTML5, Canvas
+   - 特色: 物理模擬、即時動畫、效能優化
+
+5. **猜數字小遊戲**
+   - 技術: JavaScript, HTML5, DOM
+   - 特色: 邏輯推理、即時提示、使用者體驗
+
+6. **Web Run Code（jQuery）**
+   - 技術: jQuery, HTML5, CSS3
+   - 特色: 線上編輯器、即時預覽
+
+7. **機票分析 API - Gemini 整合**
+   - 技術: Python, Gemini API, RESTful API, Amadeus API
+   - 特色: AI 整合、智能價格分析、API 串接
+
+#### 開發中專案
+
+8. **點餐系統 - OSM API 爬蟲（開發中）**
+   - 技術: C#, React, Docker, Redis, 爬蟲, 反向代理, OSM API
+   - 特色: 全端開發、容器化部署、快取優化
+
+9. **LF2 仿製遊戲（開發中）**
+   - 技術: 遊戲開發, 動畫系統, 物理引擎, 碰撞檢測
+   - 特色: 經典遊戲重現、戰鬥系統、動畫處理
+
+10. **N8N 自動化交友聊天（開發中）**
+    - 技術: N8N, 工作流程自動化, API 整合, 聊天機器人
+    - 特色: 自動化流程、多平台整合、智能回覆
+
+### 5. 技術文章區塊（Blog Section）
+
+- **功能**: 技術文章與學習心得分享
+- **技術**: 卡片佈局、內容展示
+- **特色**: 技術主題文章、閱讀體驗優化
+
+### 6. 聯絡資訊區塊（Contact Section）
+
+- **功能**: 聯絡方式與社群連結
+- **技術**: 表單處理、社群連結整合
+- **特色**: 多種聯絡方式、社群媒體整合
+
+### 7. 導航系統（Navigation）
+
+- **功能**: 頁面導航與錨點連結
+- **技術**: 平滑滾動、響應式選單
+- **特色**: 
+  - 固定導航列
+  - 平滑滾動效果
+  - 行動版選單
+
+### 8. 視覺效果增強
+
+- **粒子背景動畫**: 動態粒子效果，提升視覺吸引力
+- **滾動進度條**: 頁面滾動進度視覺化
+- **動畫效果**: Fade-in、Slide-up、Scale-hover 等過場動畫
+- **響應式設計**: 行動優先，支援多種裝置尺寸
+
+---
+
+## 技術實作亮點
+
+### 1. 現代化前端架構
+
+- **組件化開發**: 採用 React 函數式組件與 Hooks，實現可重用組件
+- **型別安全**: TypeScript 確保程式碼品質與維護性
+- **模組化設計**: 清晰的檔案結構與職責分離
+
+### 2. 效能優化
+
+- **程式碼分割**: Vite 自動進行程式碼分割與懶載入
+- **圖片優化**: WebP 格式與響應式圖片載入
+- **動畫效能**: 使用 CSS 動畫與 GPU 加速
+
+### 3. 使用者體驗
+
+- **響應式設計**: 行動優先，適配各種裝置
+- **無障礙設計**: 語義化 HTML、鍵盤導航支援
+- **載入動畫**: Intersection Observer 實現視窗內元素動畫觸發
+
+### 4. 開發體驗
+
+- **熱模組替換（HMR）**: Vite 提供快速的開發體驗
+- **型別檢查**: TypeScript 編譯時錯誤檢查
+- **程式碼格式化**: Prettier 統一程式碼風格
+
+---
+
+## 開發歷程與學習成果
+
+### 技術學習軌跡
+
+1. **前端基礎**: HTML5、CSS3、JavaScript 基礎實作
+2. **框架學習**: React、Vue 前端框架應用
+3. **UI 框架**: Bootstrap、Tailwind CSS 響應式設計
+4. **後端技術**: Node.js、Python、C#、Spring Boot 入門實作
+5. **資料庫**: MySQL、SQL Server 基礎操作
+6. **系統管理**: Windows Server 2022 維運經驗
+7. **AI 輔助開發**: Vibe Coding、AI Coding 工具應用
+8. **容器化**: Docker 容器化部署
+9. **快取系統**: Redis 快取優化
+10. **自動化**: N8N 工作流程自動化
+
+### 專案實作經驗
+
+- **前端專案**: 多個響應式網頁專案，涵蓋互動遊戲、工具應用
+- **API 開發**: Python 機票分析 API，整合 Gemini AI 與 Amadeus API
+- **全端專案**: 點餐系統（開發中），整合前後端、資料庫、容器化部署
+- **遊戲開發**: LF2 仿製遊戲（開發中），遊戲邏輯與動畫系統
+- **自動化專案**: N8N 自動化流程（開發中）
+
+---
+
+## 部署與維護
+
+### 部署方式
+
+- **平台**: GitHub Pages
+- **建置流程**: Vite 建置 → 靜態檔案輸出 → GitHub Pages 部署
+- **版本控制**: Git 版本控制與 GitHub 遠端倉庫
+
+### 維護計畫
+
+- 定期更新作品集內容
+- 持續優化效能與使用者體驗
+- 新增技術文章與學習心得
+- 擴充專案作品展示
+
+---
+
+## 未來規劃
+
+### 短期目標
+
+1. 完成開發中專案（點餐系統、LF2 遊戲、N8N 自動化）
+2. 優化網站效能與 SEO
+3. 新增更多技術文章內容
+4. 整合後端 API 功能
+
+### 長期目標
+
+1. 建立個人技術品牌
+2. 持續學習新技術並實作專案
+3. 參與開源專案貢獻
+4. 提升全端開發能力
+
+---
+
+## 專案資訊
+
+- **專案名稱**: ZaneX - 個人作品集網站
+- **開發者**: Zane
+- **開發時間**: 2024 - 2025
+- **授權**: MIT License
+- **GitHub**: [專案連結]
+
+---
+
+## 技術規格總結
+
+本專案展現了以下技術能力：
+
+✅ **前端開發**: React、TypeScript、Tailwind CSS、響應式設計  
+✅ **UI/UX 設計**: 現代化設計系統、動畫效果、使用者體驗優化  
+✅ **專案管理**: Git 版本控制、模組化開發、程式碼品質管理  
+✅ **全端能力**: 前端開發、後端 API、資料庫操作、系統部署  
+✅ **學習能力**: 持續學習新技術、AI 輔助開發、問題解決能力  
+
+---
+
+## 聯絡資訊
+
+如有任何問題或合作機會，歡迎透過以下方式聯絡：
+
+- **Email**: [聯絡信箱]
+- **GitHub**: [GitHub 連結]
+- **LinkedIn**: [LinkedIn 連結]
+
+---
+
+*本文件最後更新日期: 2025年*

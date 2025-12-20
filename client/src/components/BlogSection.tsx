@@ -17,85 +17,85 @@ interface Article {
 
 const BlogSection = () => {
   const featuredPost = {
-    title: 'Designing Accessible Interfaces: Best Practices for 2024',
-    excerpt: 'Explore key principles and practical tips for crafting inclusive, accessible digital products that delight every user.',
-    category: 'Design',
-    readTime: '7 min read',
-    publishDate: 'December 15, 2024',
+    title: '設計無障礙介面：2025 年最佳實踐',
+    excerpt: '探索打造包容性、無障礙數位產品的關鍵原則和實用技巧，讓每位用戶都能享受愉悅的體驗。',
+    category: '設計',
+    readTime: '7 分鐘閱讀',
+    publishDate: '2025年12月15日',
     featured: true,
-    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris viverra veniam sit amet lacus cursus de congue. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+    content: `在當今數位化的世界中，無障礙設計已不再是選項，而是必需品。一個真正優秀的產品應該能夠為所有用戶提供平等的使用體驗，無論他們的能力如何。
 
-    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    本文將深入探討無障礙設計的核心原則，包括視覺、聽覺和認知無障礙的考量。我們將分享實用的設計模式和最佳實踐，幫助您打造更加包容的數位產品。
 
-    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+    從色彩對比度到鍵盤導航，從螢幕閱讀器支援到語義化 HTML，每個細節都至關重要。讓我們一起學習如何創建真正為每個人設計的介面。
 
-    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.`
+    無障礙設計不僅是技術要求，更是一種設計哲學。當我們考慮到所有用戶的需求時，我們實際上是在創造更好的產品體驗。`
   };
 
   const posts = [
     {
-      title: 'The Art of Micro-Interactions in Modern Web Design',
-      excerpt: 'How subtle animations and feedback can dramatically improve user experience and engagement.',
-      category: 'Design',
-      readTime: '5 min read',
-      publishDate: 'December 10, 2024',
-      content: `Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est.
+      title: '現代網頁設計中的微互動藝術',
+      excerpt: '微妙的動畫和回饋如何顯著提升用戶體驗和參與度。',
+      category: '設計',
+      readTime: '5 分鐘閱讀',
+      publishDate: '2025年12月10日',
+      content: `微互動是現代網頁設計中不可或缺的元素。它們不僅提供視覺回饋，還能引導用戶完成操作，增強整體使用體驗。
 
-      Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci.
+      從按鈕懸停效果到載入動畫，從表單驗證到成功提示，每個微互動都應該有其存在的意義。好的微互動應該是不引人注目但卻能有效傳達信息的。
 
-      Sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.
+      在設計微互動時，我們需要考慮動畫的時機、持續時間和緩動函數。過度使用動畫可能會分散用戶注意力，而恰到好處的動畫則能讓介面更加生動有趣。
 
-      Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus.`
+      本文將分享一些優秀的微互動設計案例，以及如何在自己的專案中實現這些效果。`
     },
     {
-      title: 'Creating Cohesive Design Systems',
-      excerpt: 'Techniques for building scalable design systems that empower teams and ensure brand consistency.',
-      category: 'Design',
-      readTime: '6 min read',
-      publishDate: 'December 5, 2024',
-      content: `Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo.
+      title: '創建一致的設計系統',
+      excerpt: '建立可擴展設計系統的技巧，賦能團隊並確保品牌一致性。',
+      category: '設計',
+      readTime: '6 分鐘閱讀',
+      publishDate: '2025年12月5日',
+      content: `設計系統是現代產品開發的基石。一個好的設計系統不僅能提高開發效率，還能確保產品的一致性和可維護性。
 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+      建立設計系統需要考慮多個層面：從基礎的顏色、字體、間距，到複雜的組件和模式。每個元素都應該有明確的規範和使用指南。
 
-      Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas sed diam eget risus varius blandit sit amet non magna.
+      在本文中，我們將探討如何從零開始建立一個設計系統，包括如何組織代碼、如何編寫文檔，以及如何讓團隊成員有效使用這個系統。
 
-      Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum.`
+      一個成功的設計系統應該是活的、不斷演進的。它需要隨著產品和團隊的成長而調整和優化。`
     },
     {
-      title: 'Mobile-First Design: Beyond Responsive',
-      excerpt: 'Why mobile-first thinking is essential for modern web applications and how to implement it effectively.',
-      category: 'Design',
-      readTime: '7 min read',
-      publishDate: 'November 28, 2024',
-      content: `Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+      title: '行動優先設計：超越響應式',
+      excerpt: '為什麼行動優先思維對現代網頁應用至關重要，以及如何有效實施。',
+      category: '設計',
+      readTime: '7 分鐘閱讀',
+      publishDate: '2025年11月28日',
+      content: `行動優先設計不僅僅是讓網站在手機上能正常顯示，它是一種從行動設備開始思考的設計哲學。
 
-      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+      在行動優先的設計過程中，我們首先考慮小螢幕的限制和優勢，然後逐步擴展到更大的螢幕。這種方法迫使我們專注於最重要的內容和功能。
 
-      Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum.
+      本文將深入探討行動優先設計的核心原則，包括觸控友好的介面設計、性能優化，以及如何在小螢幕上創造出色的用戶體驗。
 
-      Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.`
+      我們還將分享一些實用的技巧和工具，幫助您在設計過程中始終保持行動優先的思維。`
     },
     {
-      title: 'Performance Optimization Strategies',
-      excerpt: 'Proven techniques to improve your web application performance and user experience.',
-      category: 'Performance',
-      readTime: '9 min read',
-      publishDate: 'November 20, 2024',
-      content: `Suspendisse potenti. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam.
+      title: '性能優化策略',
+      excerpt: '提升網頁應用性能和用戶體驗的實證技巧。',
+      category: '效能',
+      readTime: '9 分鐘閱讀',
+      publishDate: '2025年11月20日',
+      content: `性能優化是現代網頁開發中不可忽視的重要環節。一個快速載入的網站不僅能提供更好的用戶體驗，還能提高轉換率和搜尋引擎排名。
 
-      Vivamus pretium ornare est. Ut hendrerit tincidunt lorem. Sed vitae turpis a pede ullamcorper luctus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+      在本文中，我們將探討多種性能優化策略，包括代碼分割、懶加載、圖片優化、快取策略等。每個策略都有其適用場景和實施方法。
 
-      Ut non enim eleifend felis pretium feugiat. Vivamus quis mi. Phasellus a est. Phasellus magna. In hac habitasse platea dictumst. Curabitur at lacus ac velit ornare lobortis.
+      我們還將介紹一些實用的工具和技術，幫助您識別性能瓶頸並進行針對性優化。從前端到後端，從靜態資源到動態內容，我們將全面覆蓋。
 
-      Curabitur a felis in nunc fringilla tristique. Morbi mattis ullamcorper velit. Phasellus gravida semper nisi. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam.`
+      記住，性能優化是一個持續的過程。隨著技術的發展和用戶需求的變化，我們需要不斷調整和優化我們的策略。`
     },
   ];
 
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState('全部');
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const categories = ['All', 'Development', 'Design', 'Performance', 'Career'];
+  const categories = ['全部', '開發', '設計', '效能', '職涯'];
   
   const openArticle = (article: Article) => {
     setSelectedArticle(article);
@@ -107,7 +107,7 @@ const BlogSection = () => {
     setSelectedArticle(null);
   };
 
-  const filteredPosts = filter === 'All'
+  const filteredPosts = filter === '全部'
     ? posts
     : posts.filter(post => post.category === filter);
 
@@ -118,11 +118,10 @@ const BlogSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-serif font-bold mb-6">
-            My <span className="text-accent-gradient">Blog</span>
+            我的 <span className="text-accent-gradient">部落格</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Sharing knowledge, experiences, and insights from the world of development 
-            and design. Let's learn and grow together.
+            分享來自開發和設計世界的知識、經驗與見解。讓我們一起學習和成長。
           </p>
         </div>
 
@@ -131,7 +130,7 @@ const BlogSection = () => {
           <div className="p-8 lg:p-12">
             <div className="flex items-center gap-4 mb-4">
               <Badge variant="outline" className="bg-gradient-accent text-accent-foreground">
-                Featured
+                精選
               </Badge>
               <Badge variant="secondary">
                 {featuredPost.category}
@@ -159,7 +158,7 @@ const BlogSection = () => {
               </div>
               
               <Button variant="accent" className="group self-start sm:self-auto">
-                Read Article
+                閱讀文章
                 <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
@@ -220,15 +219,15 @@ const BlogSection = () => {
         </div>
 
         {/* Coming Soon */}
-        <Card className="p-8 lg:p-12 text-center shadow-card bg-gradient-primary text-primary-foreground animate-fade-in">
+        <Card className="p-8 lg:p-12 text-center shadow-card bg-gradient-primary text-white animate-fade-in">
           <div className="max-w-2xl mx-auto">
-            <BookOpen className="h-12 w-12 mx-auto mb-6 opacity-80" />
-            <h3 className="text-2xl lg:text-3xl font-serif font-bold mb-4">
-              Coming Soon
+            <BookOpen className="h-12 w-12 mx-auto mb-6 opacity-80 text-white" />
+            <h3 className="text-2xl lg:text-3xl font-serif font-bold mb-4 text-white">
+              即將推出
             </h3>
-            <p className="text-lg opacity-90">
-              More articles on design, development, and creative workflows are on the way. 
-              Stay tuned for fresh insights and practical tips!
+            <p className="text-lg opacity-90 text-white">
+              更多關於設計、開發和創意工作流程的文章即將推出。
+              敬請期待更多新鮮見解和實用技巧！
             </p>
           </div>
         </Card>

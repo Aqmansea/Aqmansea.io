@@ -16,51 +16,55 @@ export interface ExperienceItem {
 // Experience timeline data
 export const experiences: ExperienceItem[] = [
   {
-    title: 'Senior Product Designer',
-    companyName: 'CreativeTech Inc.',
+    title: '系統工程師',
+    companyName: '耀瑄科技股份有限公司',
     icon: company1,
     iconBg: '',
-    date: '2024 – Present',
+    date: '2025/4 – 至今',
     points: [
-      'Leading end-to-end product design for SaaS platform serving 50k+ users.',
-      'Driving user-research initiatives and data-informed design decisions.',
-      'Mentoring junior designers and shaping design strategy company-wide.',
+      '進行系統巡檢、維護與版本更新，確保服務穩定',
+      '處理系統故障與異常排除，快速恢復服務',
+      '執行問題分析與改善，追蹤並提升系統可靠度',
+      '協助系統部署、環境建置與整合測試',
+      '監控系統效能與資源使用，維持最佳運作狀態',
+      '提供技術支援並協作 PM／業務處理客戶需求',
+      '撰寫維運紀錄與技術文件，建立可追溯的問題管理'
     ],
   },
   {
-    title: 'Lead UX Designer',
-    companyName: 'Innovate Studio',
+    title: '設備工程師',
+    companyName: '日月光半導體製造股份有限公司',
     icon: company2,
     iconBg: '',
-    date: '2022 – 2024',
+    date: '2025/3 – 2025/4',
     points: [
-      'Oversaw multi-disciplinary team delivering web & mobile experiences.',
-      'Redesigned core product resulting in 30% increase in engagement.',
-      'Established scalable design system adopted across 3 product lines.',
+      '定期維護、保養生產設備機台',
+      '生產機台故障排除及異常查修',
+      '設備問題改善及異常分析與追蹤處理',
+      '維持生產機台設備的正常運轉'
     ],
   },
   {
-    title: 'Product Design Intern',
-    companyName: 'Airbnb',
+    title: '裝機設備工程師',
+    companyName: '特瑞科技有限公司',
     icon: airbnbLogo,
     iconBg: '',
-    date: 'Summer 2021',
+    date: '2024/12 – 2025/2',
     points: [
-      'Collaborated on Host onboarding flow improvements.',
-      'Built interactive prototypes for A/B testing with 200+ participants.',
-      'Presented findings to cross-functional leadership.',
+      '提供客戶處安裝機台',
+      '檢修維護及保養機台設備'
     ],
   },
   {
-    title: 'B.A. (Hons) in Design',
-    companyName: 'National University of Singapore',
+    title: '職訓Java跨域培訓生',
+    companyName: '資展國際',
     icon: nusLogo,
     iconBg: '',
-    date: '2017 – 2021',
+    date: '2024/8',
     points: [
-      'Graduated with First-Class Honours, specialising in interaction design.',
-      'President of Design Society organising annual design hackathon.',
-      'Capstone project shortlisted for international design award.',
+      '前端 Javascript/html/css/Vue基礎。',
+      '資料庫 MSSQL 基礎',
+      '後端 Java基礎/Spring Boot 入門實作',
     ],
   }
 ];
