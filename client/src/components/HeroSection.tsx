@@ -35,7 +35,7 @@ const HeroSection = () => {
               </h2>
               <p className="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl">
                 現任系統工程師，具 Windows Server 2022 與醫院資訊系統維運經驗。
-                熟悉 JavaScript / React 前端開發，具 Python / Java / Node.js / ASP.NET 後端基礎。
+                有Vibe Coding / AI Coding經驗，JavaScript / React 前端開發，具 Python / Java / Node.js / ASP.NET 後端基礎。
               </p>
             </div>
 
