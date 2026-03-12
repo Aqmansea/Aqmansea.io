@@ -3,7 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 interface Article {
   title: string;
@@ -17,77 +17,89 @@ interface Article {
 
 const BlogSection = () => {
   const featuredPost = {
-    title: '設計無障礙介面：2025 年最佳實踐',
-    excerpt: '探索打造包容性、無障礙數位產品的關鍵原則和實用技巧，讓每位用戶都能享受愉悅的體驗。',
-    category: '設計',
-    readTime: '7 分鐘閱讀',
+    title: '系統工程師的一天：從巡檢到故障排除',
+    excerpt: '分享我在醫院資訊系統維運現場的一天工作流程，包含巡檢、異常處理、備份與與同仁協作的實際經驗。',
+    category: '系統維運',
+    readTime: '6 分鐘閱讀',
     publishDate: '2025年12月15日',
     featured: true,
-    content: `在當今數位化的世界中，無障礙設計已不再是選項，而是必需品。一個真正優秀的產品應該能夠為所有用戶提供平等的使用體驗，無論他們的能力如何。
+    content: `身為醫院資訊系統的系統工程師，每一天的工作都圍繞在「穩定」這兩個字上。從一早登入監控系統、檢查服務狀態，到確認前一天的備份是否成功，任何一個細節出錯，都可能影響臨床端的正常運作。
 
-    本文將深入探討無障礙設計的核心原則，包括視覺、聽覺和認知無障礙的考量。我們將分享實用的設計模式和最佳實踐，幫助您打造更加包容的數位產品。
+    通常我的一天會從系統巡檢開始：檢查 Windows Server 2022 的事件檢視器、磁碟空間使用狀況、關鍵服務是否在線，以及排程工作的執行情形。如果發現異常，會先依照既有SOP處理，必要時再跟開發或廠商窗口討論。
 
-    從色彩對比度到鍵盤導航，從螢幕閱讀器支援到語義化 HTML，每個細節都至關重要。讓我們一起學習如何創建真正為每個人設計的介面。
+    當臨床端回報系統變慢或功能異常時，我會先從網路與伺服器端著手，例如：確認連線狀態、資源使用率（CPU / RAM / IO）、相關服務 Log，再搭配同事的經驗與 GPT 協助，縮小問題範圍。很多時候，文件不完整或版本歷史複雜，這時候能有效整理資訊與問對問題就很重要。
 
-    無障礙設計不僅是技術要求，更是一種設計哲學。當我們考慮到所有用戶的需求時，我們實際上是在創造更好的產品體驗。`
+    除了日常維運之外，我也會參與新系統或新模組的建置，包含測試環境的準備、權限設定、簡單的腳本或批次工具撰寫，協助讓部署流程更順。過程中會把重點步驟與踩過的坑記錄下來，變成團隊內部的知識文件。
+
+    對我來說，系統工程師的價值不只是「把系統顧好」，更是在壓力環境下，持續優化流程、降低人工作業風險，讓醫院同仁可以放心把系統交給我們。`
   };
 
   const posts = [
     {
-      title: '現代網頁設計中的微互動藝術',
-      excerpt: '微妙的動畫和回饋如何顯著提升用戶體驗和參與度。',
-      category: '設計',
+      title: '醫院資訊系統巡檢流程實務',
+      excerpt: '分享我在 Windows Server 與醫院系統巡檢時的重點檢查項目與實際做法。',
+      category: '系統維運',
       readTime: '5 分鐘閱讀',
       publishDate: '2025年12月10日',
-      content: `微互動是現代網頁設計中不可或缺的元素。它們不僅提供視覺回饋，還能引導用戶完成操作，增強整體使用體驗。
+      content: `在醫院環境中，系統故障往往不只是「服務暫停」，而是會直接影響到臨床作業。因此，規律且有系統的巡檢非常重要。
 
-      從按鈕懸停效果到載入動畫，從表單驗證到成功提示，每個微互動都應該有其存在的意義。好的微互動應該是不引人注目但卻能有效傳達信息的。
+      我的巡檢流程大致會從以下幾個面向展開：
 
-      在設計微互動時，我們需要考慮動畫的時機、持續時間和緩動函數。過度使用動畫可能會分散用戶注意力，而恰到好處的動畫則能讓介面更加生動有趣。
+      1. 事件檢視器：查看是否有重複發生的錯誤或警告，特別是與磁碟、網路、服務相關的事件。
+      2. 資源監控：觀察 CPU、記憶體、磁碟 IO、網路流量是否有異常尖峰或長時間滿載情況。
+      3. 服務與排程：確認關鍵服務是否在線、排程工作有無失敗記錄，備份與批次工作是否正常完成。
+      4. 日誌與應用層：視系統特性檢查應用 Log，留意錯誤訊息或效能警示。
 
-      本文將分享一些優秀的微互動設計案例，以及如何在自己的專案中實現這些效果。`
+      巡檢過程中，我會將異常與處理方式記錄下來，逐步整理成內部文件，讓團隊成員可以快速對照，也方便之後持續優化巡檢項目。`
     },
     {
-      title: '創建一致的設計系統',
-      excerpt: '建立可擴展設計系統的技巧，賦能團隊並確保品牌一致性。',
-      category: '設計',
+      title: '使用 GPT 輔助系統問題排除',
+      excerpt: '實際案例分享：如何在文件不足的情況下，利用 GPT 與同事經驗一起定位問題。',
+      category: '系統維運',
       readTime: '6 分鐘閱讀',
       publishDate: '2025年12月5日',
-      content: `設計系統是現代產品開發的基石。一個好的設計系統不僅能提高開發效率，還能確保產品的一致性和可維護性。
+      content: `在維運現場常見的一個情境是：「系統歷史久遠、文件不完整、原始開發人員已經不在公司」。這時候，如何快速理解系統行為並找到問題來源，就變成很關鍵的能力。
 
-      建立設計系統需要考慮多個層面：從基礎的顏色、字體、間距，到複雜的組件和模式。每個元素都應該有明確的規範和使用指南。
+      我自己的做法通常會結合同事經驗、實際操作觀察，以及 GPT 的輔助：
 
-      在本文中，我們將探討如何從零開始建立一個設計系統，包括如何組織代碼、如何編寫文檔，以及如何讓團隊成員有效使用這個系統。
+      1. 先用自己的理解把問題現象描述清楚（發生時間、影響範圍、環境差異）。
+      2. 蒐集相關 Log、錯誤碼、事件記錄，整理成有條理的輸入給 GPT，請它協助推測可能原因與檢查方向。
+      3. 將 GPT 提出的方向與同事的經驗交叉比對，優先從風險較低、可快速驗證的步驟開始。
+      4. 每一步試過的結果都簡單記錄，之後可以回顧哪些方向有效，哪些是誤判。
 
-      一個成功的設計系統應該是活的、不斷演進的。它需要隨著產品和團隊的成長而調整和優化。`
+      GPT 對我來說不是「直接給答案的工具」，比較像是可以一起討論的技術夥伴，幫忙補齊關鍵字、技術背景與可能路線，讓排錯過程更有效率。`
     },
     {
-      title: '行動優先設計：超越響應式',
-      excerpt: '為什麼行動優先思維對現代網頁應用至關重要，以及如何有效實施。',
-      category: '設計',
+      title: '從裝機工程到系統工程師的轉職歷程',
+      excerpt: '分享自己從裝機設備工程師、職訓到系統工程師的轉職心路歷程與學習重點。',
+      category: '職涯',
       readTime: '7 分鐘閱讀',
       publishDate: '2025年11月28日',
-      content: `行動優先設計不僅僅是讓網站在手機上能正常顯示，它是一種從行動設備開始思考的設計哲學。
+      content: `在成為系統工程師之前，我曾在不同產業擔任裝機設備工程師，也參加過職訓中心的 Java 跨域培訓課程。這些經歷看起來分散，但其實都累積成今天工作很重要的底子。
 
-      在行動優先的設計過程中，我們首先考慮小螢幕的限制和優勢，然後逐步擴展到更大的螢幕。這種方法迫使我們專注於最重要的內容和功能。
+      在裝機工作裡，我學到的是現場溝通與動手解決問題的能力：到客戶端安裝機台、排除硬體與環境問題、在壓力下維持冷靜。職訓課程則幫我補上程式語言、資料庫與後端框架的基礎。
 
-      本文將深入探討行動優先設計的核心原則，包括觸控友好的介面設計、性能優化，以及如何在小螢幕上創造出色的用戶體驗。
+      轉到系統工程師之後，我把這兩塊結合起來：一方面理解系統在「機房與網路」這一層的實際限制，另一方面也能看懂簡單的程式碼與 Log，和開發團隊有共同語言。
 
-      我們還將分享一些實用的技巧和工具，幫助您在設計過程中始終保持行動優先的思維。`
+      如果你也在考慮從非本科或硬體相關工作轉往系統或軟體領域，我會建議：
+      - 先選一兩個核心領域打底（例如網路 + 一種程式語言）
+      - 找實際專案或 side project 練習，而不是只看書
+      - 把每次解決問題的過程記錄下來，久了會變成很有價值的知識庫。`
     },
     {
-      title: '性能優化策略',
-      excerpt: '提升網頁應用性能和用戶體驗的實證技巧。',
-      category: '效能',
-      readTime: '9 分鐘閱讀',
+      title: '維運文件怎麼寫才有用？',
+      excerpt: '談談我在實務上整理維運紀錄與技術文件的做法，避免文件變成「寫了也沒人在看」。',
+      category: '系統維運',
+      readTime: '8 分鐘閱讀',
       publishDate: '2025年11月20日',
-      content: `性能優化是現代網頁開發中不可忽視的重要環節。一個快速載入的網站不僅能提供更好的用戶體驗，還能提高轉換率和搜尋引擎排名。
+      content: `很多團隊都有文件，但遇到問題時大家還是習慣直接問人，代表文件內容常常「找不到、看不懂或不可信」。在維運工作中，要讓文件真的被使用，我自己有幾個原則：
 
-      在本文中，我們將探討多種性能優化策略，包括代碼分割、懶加載、圖片優化、快取策略等。每個策略都有其適用場景和實施方法。
+      1. 針對情境寫，而不是只列指令：例如「遇到某某錯誤碼時怎麼處理」，包含前置條件、檢查步驟與風險說明。
+      2. 保留實際案例：把真實發生過的 incident 紀錄下來，說明當時的判斷與最後證實的原因。
+      3. 持續整理而不是一次寫完：每次處理完問題，就順手補充或修正相關文件。
+      4. 放在大家找得到的地方，並在新人訓練時真的帶他們用一次。
 
-      我們還將介紹一些實用的工具和技術，幫助您識別性能瓶頸並進行針對性優化。從前端到後端，從靜態資源到動態內容，我們將全面覆蓋。
-
-      記住，性能優化是一個持續的過程。隨著技術的發展和用戶需求的變化，我們需要不斷調整和優化我們的策略。`
+      當文件開始能幫大家省時間、降低重複問問題的頻率，團隊就會願意一起維護，久而久之就會形成一套屬於自己團隊的知識系統。`
     },
   ];
 
@@ -95,7 +107,7 @@ const BlogSection = () => {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const categories = ['全部', '開發', '設計', '效能', '職涯'];
+  const categories = ['全部', '系統維運', '職涯'];
   
   const openArticle = (article: Article) => {
     setSelectedArticle(article);
@@ -121,7 +133,7 @@ const BlogSection = () => {
             我的 <span className="text-accent-gradient">部落格</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            分享來自開發和設計世界的知識、經驗與見解。讓我們一起學習和成長。
+            記錄我在醫院資訊系統維運、Windows Server 管理，以及轉職系統工程師過程中的實際經驗與學習心得。
           </p>
         </div>
 
@@ -218,32 +230,18 @@ const BlogSection = () => {
           ))}
         </div>
 
-        {/* Coming Soon */}
-        <Card className="p-8 lg:p-12 text-center shadow-card bg-gradient-primary text-white animate-fade-in">
-          <div className="max-w-2xl mx-auto">
-            <BookOpen className="h-12 w-12 mx-auto mb-6 opacity-80 text-white" />
-            <h3 className="text-2xl lg:text-3xl font-serif font-bold mb-4 text-white">
-              即將推出
-            </h3>
-            <p className="text-lg opacity-90 text-white">
-              更多關於設計、開發和創意工作流程的文章即將推出。
-              敬請期待更多新鮮見解和實用技巧！
-            </p>
-          </div>
-        </Card>
-
         {/* Article Modal */}
         <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
+          <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto bg-white dark:bg-zinc-900 border border-border shadow-xl text-neutral-900 dark:text-neutral-100">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-serif font-bold mb-4">
+              <DialogTitle className="text-2xl font-serif font-bold mb-4 text-neutral-900 dark:text-neutral-100">
                 {selectedArticle?.title}
               </DialogTitle>
             </DialogHeader>
             
             {selectedArticle && (
               <div className="space-y-6">
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <div className="flex items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400">
                   <Badge variant="secondary">{selectedArticle.category}</Badge>
                   <div className="flex items-center gap-2">
                     <Calendar className="h-4 w-4" />
@@ -255,9 +253,9 @@ const BlogSection = () => {
                   </div>
                 </div>
                 
-                <div className="prose prose-lg max-w-none">
+                <div className="max-w-none space-y-4 leading-relaxed text-neutral-900 dark:text-neutral-100">
                   {selectedArticle.content.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className="mb-4 text-foreground leading-relaxed">
+                    <p key={index} className="text-neutral-900 dark:text-neutral-100">
                       {paragraph.trim()}
                     </p>
                   ))}

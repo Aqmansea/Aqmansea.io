@@ -1,7 +1,5 @@
 import company1 from '@/assets/company-1.webp';
 import company2 from '@/assets/company-2.webp';
-import airbnbLogo from '@/assets/airbnb.webp';
-import nusLogo from '@/assets/nus.webp';
 
 // Typing for experience items
 export interface ExperienceItem {
@@ -47,7 +45,7 @@ export const experiences: ExperienceItem[] = [
   {
     title: '裝機設備工程師',
     companyName: '特瑞科技有限公司',
-    icon: airbnbLogo,
+    icon: company1,
     iconBg: '',
     date: '2024/12 – 2025/2',
     points: [
@@ -58,7 +56,7 @@ export const experiences: ExperienceItem[] = [
   {
     title: '職訓Java跨域培訓生',
     companyName: '資展國際',
-    icon: nusLogo,
+    icon: company2,
     iconBg: '',
     date: '2024/8',
     points: [

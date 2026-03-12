@@ -9,12 +9,11 @@ const AboutSection = () => {
   const skillsRef = useRef<HTMLDivElement>(null);
 
   const skills = [
-    { name: 'Frontend (React/Vue)', level: 50, icon: Code2 },
-    { name: 'Backend (Node.js/Python)', level: 60, icon: Briefcase },
-    { name: 'Windows Server', level: 65, icon: Globe },
-    { name: 'Database (MySQL/SQL)', level: 60, icon: Smartphone },
-    { name: 'AI Coding (Vibe Coding)', level: 75, icon: Code2 },
-    { name: 'System Administration', level: 70, icon: Users },
+    { name: 'Windows Server / AD', level: 65, icon: Globe },
+    { name: '醫院資訊系統維運', level: 60, icon: Briefcase },
+    { name: 'Python / Java / C#（入門）', level: 30, icon: Smartphone },
+    { name: 'AI 輔助開發（Vibe Coding）', level: 70, icon: Code2 },
+    { name: 'System Administration', level: 60, icon: Users },
   ];
 
   useEffect(() => {
@@ -69,8 +68,8 @@ const AboutSection = () => {
             關於 <span className="text-accent-gradient">Zane</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            現任耀瑄科技系統維護工程師，具 Windows Server 2022 與醫院資訊系統維運經驗。
-            能以 AI 輔助（Vibe Coding / AI Coding）快速建立原型並完成日常維護與自動化。
+            現任耀瑄科技系統維護工程師，主要負責 Windows Server 2022、醫院資訊系統維運與日常巡檢、備份與故障排除。
+            在程式開發部分，目前以 AI 輔助（Vibe Coding / AI Coding）為主，透過實作小工具與練習專案持續累積經驗。
           </p>
         </div>
 
@@ -78,20 +77,25 @@ const AboutSection = () => {
           
           {/* Personal Story */}
           <div className="animate-slide-up">
-            <h3 className="text-2xl font-serif font-semibold mb-6">跨域經歷</h3>
+            <h3 className="text-2xl font-serif font-semibold mb-6">我的轉職歷程</h3>
             <div className="space-y-6 text-muted-foreground">
               <p>
-                大學主修水土保持系。後來在國立臺北科技大學水環境研究中心擔任研究助理
-                ，回家鄉後遇上轉職機會，參與職訓局辦理的職訓課程，學習Web前端開發與後端開發。
+                我畢業於國立屏東科技大學水土保持系，求學過程中培養了系統化思考與問題分析能力。
+                畢業後曾在工程顧問公司與研究單位擔任專案副工程師與研究助理，參與政府專案與系統測試相關工作，
+                也在這段時間累積了資料整理、技術文件撰寫與跨部門協作的經驗。
               </p>
               <p>
-                目前在耀瑄科技擔任系統維護工程師，負責醫院系統維運、資料備份、系統建置、例行檢查與故障排除。
-                能在文件不足的情況下，透過官方文件或AI輔助與同事知識傳承快速定位問題。
+                為了強化資訊技術能力，我參與了勞動部勞動力發展署的 JAVA 跨域培訓課程，系統性學習後端開發、資料庫與網頁技術，
+                透過課程專案與實作訓練，建立了進入資訊系統領域所需的基礎能力，也更加確立自己往系統工程與維運方向發展的目標。
               </p>
               <p>
-                前端有 React 作品經驗；後端具 Flask / Spring Boot / Node.js / ASP.NET 入門實作
-                與 API 串接經驗。
-                持續在 Vibe Coding（AI Coding） 學習與實作。
+                目前在耀瑄科技擔任系統維護工程師，負責醫療院所資訊系統維運與技術支援，包含系統部署、日常維護、系統監控、備份與異常排除。
+                在文件不完整或歷史背景複雜的情況下，我會結合同事經驗、官方文件與 GPT / Vibe Coding 的協助，整理出可重複使用的解決方案與維運紀錄。
+              </p>
+              <p>
+                在前後端開發上目前仍屬入門階段，主要透過 Vibe Coding（AI Coding）完成練習型專案與小工具，
+                在實作中累積對 React 以及後端技術（如 Flask / Spring Boot / Node.js / ASP.NET）的理解，
+                並將這些學習逐步帶回到日常維運、自動化腳本與流程優化的工作上。
               </p>
             </div>
           </div>

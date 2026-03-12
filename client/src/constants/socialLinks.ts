@@ -1,4 +1,4 @@
-import { faGithub, faLinkedin, faTwitter, faDribbble, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faTwitter, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 export const socialLinks = [
@@ -12,12 +12,6 @@ export const socialLinks = [
     icon: faLinkedin,
     href: 'https://linkedin.com',
     label: 'LinkedIn',
-    type: 'external' as const
-  },
-  {
-    icon: faDribbble,
-    href: 'https://dribbble.com',
-    label: 'Dribbble',
     type: 'external' as const
   },
   {

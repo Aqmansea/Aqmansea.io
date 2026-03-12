@@ -25,17 +25,17 @@ const HeroSection = () => {
           {/* Content */}
           <div className="flex-1 text-center lg:text-left animate-slide-up">
             <div className="mb-6">
-              <h1 className="text-5xl lg:text-7xl font-serif font-bold mb-4">
-                <span className="text-slate-800 dark:text-slate-100">
+              <h1 className="text-5xl lg:text-7xl font-serif font-bold mb-4 drop-shadow-lg">
+                <span className="text-foreground">
                   嗨，我是 Zane
                 </span>               
               </h1>
-              <h2 className="text-4xl lg:text-5xl font-serif font-bold mb-4">
-                <span className="text-slate-600 dark:text-slate-300">系統工程師</span>
+              <h2 className="text-4xl lg:text-5xl font-serif font-bold mb-4 drop-shadow">
+                <span className="text-primary">系統工程師</span>
               </h2>
               <p className="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl">
-                現任系統工程師，具 Windows Server 2022 與醫院資訊系統維運經驗。
-                有Vibe Coding / AI Coding經驗，JavaScript / React 前端開發，具 Python / Java / Node.js / ASP.NET 後端基礎。
+                現任系統工程師，主要負責 Windows Server 2022 與醫院資訊系統的日常維運與巡檢。
+                目前透過 Vibe Coding / AI Coding 協助練習 React 與後端技術，持續累積實作經驗中。
               </p>
             </div>
 
