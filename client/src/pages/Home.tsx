@@ -37,7 +37,7 @@ export default function Home() {
               Portfolio
             </div>
             <p className="text-primary-foreground/80">
-              © 2025 Portfolio.
+              © 2026 Portfolio.
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-smooth">
